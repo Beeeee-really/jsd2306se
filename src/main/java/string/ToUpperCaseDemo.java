@@ -11,5 +11,7 @@ public class ToUpperCaseDemo {
         System.out.println("q w q w q w q wQW QW QW".toUpperCase());
 
         System.out.println("qwq wqw qQWQ WQ WQ".toLowerCase());
+
+        System.out.println("q wq wq wQ WQ WQ".equalsIgnoreCase("q wq wq wQ WQ WQ"));
     }
 }
