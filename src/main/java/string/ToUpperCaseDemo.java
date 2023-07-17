@@ -9,6 +9,7 @@ package string;
 public class ToUpperCaseDemo {
     public static void main(String[] args) {
         System.out.println("q w q w q w q wQW QW QW".toUpperCase());
+
         System.out.println("qwq wqw qQWQ WQ WQ".toLowerCase());
     }
 }
