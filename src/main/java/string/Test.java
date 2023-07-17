@@ -7,7 +7,7 @@ package string;
 public class Test {
     public static void main(String[] args) {
         String s1 = "https://www.tedu.cn";
-        String s2 = "www.example.gg";
+        String s2 = "www.example.gg.com.io.org.cn/qwq";
         System.out.println(getHostName(s1));
         System.out.println(getHostName(s2));
     }
