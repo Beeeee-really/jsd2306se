@@ -10,7 +10,10 @@ package string;
 public class IndexOfDemo {
     public static void main(String[] args) {
         String line = "thinking in java";
-        int index = line.indexOf("in");
-        System.out.println(index);
+        System.out.println(line.indexOf("in"));
+
+        System.out.println(line.lastIndexOf("in"));
+
+        System.out.println(line.indexOf("in", 2));
     }
 }
