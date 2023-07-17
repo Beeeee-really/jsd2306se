@@ -1,6 +1,5 @@
 package string;
 
-
 /**
  * String提供了一组静态方法:valueOf
  * <p>用于将java中其他类型转换为String
