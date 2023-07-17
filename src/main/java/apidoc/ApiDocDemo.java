@@ -1,14 +1,14 @@
 package apidoc;
 
+/**
+ * 文档注释
 
+ * @see java.lang.String
+ * @since JDK1.5
+ */
 public class ApiDocDemo {
 
-    /**
-     * 文档注释
 
-     * @see java.lang.String
-     * @since JDK1.5
-     */
 
     /**
      * 问候语
