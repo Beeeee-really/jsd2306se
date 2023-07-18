@@ -10,6 +10,22 @@ public class Point {
         this.x = x;
         this.y = y;
     }//自动生成Alt+insert
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
+
+    void getX(){
+        this.x = y;
+    }
+
+    void getY(){
+        this.y=y;
+    }
 }
 
 
