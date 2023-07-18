@@ -25,5 +25,10 @@ public class SplitDemo {
         line = "abc==def==ghi";
         data = line.split("=");
         System.out.println(Arrays.toString(data));
+        /*
+            当出现连续可拆分项时，中间会多拆分出一个空字符
+            如果是字符串最开始时是可拆分项，那么之前会拆分出一个空字符
+            注意：如果字符串末尾连续出现可拆分项时，那么后面的空字符全部忽略
+         */
     }
 }
