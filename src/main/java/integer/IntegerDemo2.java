@@ -18,5 +18,16 @@ public class IntegerDemo2 {
         System.out.println(lmax);
         long lmin = Long.MIN_VALUE;
         System.out.println(lmin);
+
+        /*
+
+         */
+        String s1 = "123";
+//        String s1 = "123.123";//不能转换为整数，会报错
+        int i = Integer.parseInt(s1);
+        System.out.println(i);
+
+        double d = Double.parseDouble(s1);
+        System.out.println(d);
     }
 }
