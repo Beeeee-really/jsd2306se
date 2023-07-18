@@ -84,6 +84,10 @@ public class StingBuilderDemo1 {
                 .insert(7, "qwq");//可连续写
         System.out.println(builder);
 
+
+        
+
+
         /*
             StringBuilder reverse();
             反转字符串
