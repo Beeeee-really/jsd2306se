@@ -1,8 +1,5 @@
 package object;
 
-/**
- * java中
- */
 public class Demo {
     public static void main(String[] args) {
         Point p = new Point(1, 2);
@@ -16,9 +13,22 @@ public class Demo {
          */
 
         System.out.println(p);
-
+        /*
+            当一个对象与字符串进行连接操作时，JVM也会调用它的toString方法先将其
+            转换为字符串后再进行连接
+         */
         line = "这是一个Point类的实例" + p;
         System.out.println(line);
+
+
+        /*
+            对于引用类型变量而言，变量保存的值是地址
+            "=="是值比较，所以比较的就是变量地址
+
+         */
+        Point p2 = new Point(1,2);
+        System.out.println(p==p2);//false
+        System.out.println(p.equals(p2));//true
     }
 }
 
