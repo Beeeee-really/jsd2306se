@@ -22,7 +22,7 @@ public class SplitDemo {
         data = line.split("\\.");
         System.out.println(Arrays.toString(data));
 
-        line = "abc=def=ghi";
+        line = "abc==def==ghi";
         data = line.split("=");
         System.out.println(Arrays.toString(data));
     }
