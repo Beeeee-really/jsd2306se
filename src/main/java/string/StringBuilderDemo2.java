@@ -6,7 +6,7 @@ package string;
 public class StringBuilderDemo2 {
     public static void main(String[] args) {
         StringBuilder builder = new StringBuilder("a");
-        for (int i = 0; i < 999999999; i += 1) {
+        for (int i = 0; i < 100000; i += 1) {
             builder.append("a");
         }
         System.out.println("修改完成：" + builder);
