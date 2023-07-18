@@ -25,5 +25,15 @@ public class ReplaceAllDemo {
          */
         str = line.replaceAll("[a-zA-Z]+", "#WORD#");
         System.out.println(str);
+
+
+        /*
+            和谐用语判定
+         */
+        String regex = "(wqnmlgb|dsb|nc|sb|rnm|fw|djb)";
+        String messsage = "wqnmlgb!你这个dsb,你怎么这么的nc,你就纯纯的djb!";
+        messsage = messsage.replaceAll(regex, "***");
+        System.out.println(messsage);
     }
 }
+
