@@ -78,11 +78,17 @@ public class StingBuilderDemo1 {
         System.out.println(builder);
 
 
-
         builder.insert(0, "1212")
                 .delete(0, 2)
                 .replace(3, 4, "qwq")
                 .insert(7, "qwq");//可连续写
+        System.out.println(builder);
+
+        /*
+            StringBuilder reverse();
+            反转字符串
+         */
+        builder.reverse();
         System.out.println(builder);
     }
 }
