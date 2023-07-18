@@ -3,6 +3,7 @@ package string;
 /**
  * 由于字符串不适合修改，因此java提供了一个专门用于修改字符串的工具类:StringBuilder
  * <p>
+ *
  * @author Beeeee
  */
 public class StingBuilderDemo1 {
@@ -26,5 +27,30 @@ public class StingBuilderDemo1 {
         System.out.println(len);
         String line = builder.toString();//将当前StringBuilder的内容以String形式返回
         System.out.println(line);
+
+
+        /*
+            StringBuilder replace(int start,int end,String str);
+            将指定范围内的字符串替换为给定内容
+            范围含头不含尾
+
+            hello world!hello java!
+                    V
+            hello wor qwq qwq o java!
+         */
+
+        builder.replace(9, 16, " qwq qwq ");
+        System.out.println(builder);
+
+        /*
+            StringBuilder delete(int start,int end);
+            删除指定范围内的字符串
+
+            hello wor qwq qwq o java!
+                    V
+            r qwq qwq o java!
+         */
+        builder.delete(0, 8);
+        System.out.println(builder);
     }
 }
