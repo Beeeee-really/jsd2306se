@@ -16,6 +16,10 @@ public class StingBuilderDemo1 {
         len = builder.length();
         System.out.println(len);
 
+
+
+
+
         /*
             StringBuilder append(String str);
             将给定的内容加到字符串末尾，相当于"+"操作
@@ -27,6 +31,9 @@ public class StingBuilderDemo1 {
         System.out.println(len);
         String line = builder.toString();//将当前StringBuilder的内容以String形式返回
         System.out.println(line);
+
+
+
 
 
         /*
@@ -42,6 +49,9 @@ public class StingBuilderDemo1 {
         builder.replace(9, 16, " qwq qwq ");
         System.out.println(builder);
 
+
+
+
         /*
             StringBuilder delete(int start,int end);
             删除指定范围内的字符串
@@ -53,6 +63,9 @@ public class StingBuilderDemo1 {
         builder.delete(0, 8);
         System.out.println(builder);
 
+
+
+
         /*
             StringBuilder insert(int offset,String str);
             将指定内容插入到指定位置
@@ -62,6 +75,14 @@ public class StingBuilderDemo1 {
             qwq r qwq qwq o java!
          */
         builder.insert(0, "qwq ");
+        System.out.println(builder);
+
+        
+
+        builder.insert(0, "1212")
+                .delete(0, 2)
+                .replace(3, 4, "qwq")
+                .insert(7, "qwq");//可连续写
         System.out.println(builder);
     }
 }
