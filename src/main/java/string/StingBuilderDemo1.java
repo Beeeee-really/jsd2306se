@@ -52,5 +52,16 @@ public class StingBuilderDemo1 {
          */
         builder.delete(0, 8);
         System.out.println(builder);
+
+        /*
+            StringBuilder insert(int offset,String str);
+            将指定内容插入到指定位置
+
+            r qwq qwq o java!
+                    V
+            qwq r qwq qwq o java!
+         */
+        builder.insert(0, "qwq ");
+        System.out.println(builder);
     }
 }
