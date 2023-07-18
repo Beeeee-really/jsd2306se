@@ -17,7 +17,7 @@ package integer;
  */
 public class IntegerDemo1 {
     public static void main(String[] args) {
-        int num = 123;
+        int num = 128;
 //        Integer i1 = num;
 //        System.out.println("i1:" + i1);
 //        Integer i2 = num;
@@ -33,5 +33,21 @@ public class IntegerDemo1 {
 
         System.out.println(i1 == i2);
         System.out.println(i1.equals(num));
+
+        double dou = 123.123;
+        Double d1 = Double.valueOf(dou);
+        Double d2 = Double.valueOf(dou);
+
+        System.out.println(d1 == d2);
+        System.out.println(d1.equals(d2));
+
+        int i = i1.intValue();
+        System.out.println(i);
+        long l = i1.longValue();
+        System.out.println(l);
+        double d = i1.doubleValue();
+        System.out.println(d);
+        byte b = i1.byteValue();
+        System.out.println(b);//byte b = 127 + 1;
     }
 }
