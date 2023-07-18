@@ -77,7 +77,7 @@ public class StingBuilderDemo1 {
         builder.insert(0, "qwq ");
         System.out.println(builder);
 
-        
+
 
         builder.insert(0, "1212")
                 .delete(0, 2)
