@@ -20,7 +20,7 @@ public class Point {
     }
 
     void getX(){
-        this.x = y;
+        this.x = x;
     }
 
     void getY(){
