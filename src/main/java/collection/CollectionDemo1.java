@@ -34,7 +34,6 @@ public class CollectionDemo1 {
         a.add("one");
         System.out.println(a);
 
-
         Collection b = new ArrayList();
         b.add("qwq");
         b.add("awa");
@@ -43,5 +42,37 @@ public class CollectionDemo1 {
         b.add("^_^");
         b.add("qwq");//重复元素可以放入list集合，但不能放入set集合
         System.out.println(b);
+
+
+
+
+        /*
+            int size()
+            返回当前集合元素的个数
+         */
+        int size = b.size();
+        System.out.println("size:" + size);
+
+
+
+
+        /*
+            boolean isEmpty()
+            判断当前集合是否为空集(不包含任何元素,size=0)
+         */
+        boolean isEmpty = b.isEmpty();
+        System.out.println("是否是空集:" + isEmpty);
+        
+
+
+
+        /*
+            void clear()
+            清空集合
+         */
+        b.clear();
+        System.out.println(b);
+        System.out.println("size:" + b.size());
+        System.out.println("是否是空集:" + b.isEmpty());
     }
 }
