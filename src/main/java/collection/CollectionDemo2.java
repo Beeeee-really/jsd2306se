@@ -46,6 +46,8 @@ public class CollectionDemo2 {
             从集合中删除给定元素o
             删除逻辑：
             删除集合中与给定元素o equals方法比较为true的元素
+
+            如果集合中存在多个与给定元素equals比较为true的元素则删除靠前的第一个
          */
         c.remove(p);
         System.out.println(c);
