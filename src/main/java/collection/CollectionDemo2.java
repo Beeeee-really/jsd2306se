@@ -2,6 +2,7 @@ package collection;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * 集合中与元素的toString和equals方法相关的操作
@@ -11,12 +12,18 @@ import java.util.Collection;
  */
 public class CollectionDemo2 {
     public static void main(String[] args) {
-        Collection c = new ArrayList();
+        /*
+            集合在判断是否为重复元素时，也是依靠equals方法的比较
+            Set集合不能存入equals比较为true的元素两次
+         */
+//        Collection c = new ArrayList();
+        Collection c = new HashSet();
         c.add(new Point(1, 2));
         c.add(new Point(3, 4));
         c.add(new Point(5, 6));
         c.add(new Point(7, 8));
         c.add(new Point(9, 10));
+        c.add(new Point(1, 2));
         /*
             集合重写了·toString方法，格式：
             [1,2,3,5,7,8]
@@ -33,5 +40,14 @@ public class CollectionDemo2 {
          */
         boolean contains = c.contains(p);
         System.out.println("是否包含:" + contains);
+
+        /*
+            boolean remove(Object o)
+            从集合中删除给定元素o
+            删除逻辑：
+            删除集合中与给定元素o equals方法比较为true的元素
+         */
+        c.remove(p);
+        System.out.println(c);
     }
 }
