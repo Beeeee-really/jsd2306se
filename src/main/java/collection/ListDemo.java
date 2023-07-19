@@ -47,5 +47,16 @@ public class ListDemo {
         String old = list.set(2, "six");
         System.out.println(list);
         System.out.println(old);
+
+
+        /*
+            利用get,set方法完成集合的反准操作
+         */
+
+        list.set(2, "three");
+        for (int i = 0; i < e.length() - 1; i += 1) {
+            list.set(i, list.set(e.length() - i, list.get(i)));
+        }
+        System.out.println(list);
     }
 }
