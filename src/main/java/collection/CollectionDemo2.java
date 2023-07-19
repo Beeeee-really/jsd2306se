@@ -5,6 +5,7 @@ import java.util.Collection;
 
 /**
  * 集合中与元素的toString和equals方法相关的操作
+ * <p>
  *
  * @author Beeeee
  */
