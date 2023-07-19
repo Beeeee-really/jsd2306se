@@ -16,8 +16,8 @@ public class CollectionDemo2 {
             集合在判断是否为重复元素时，也是依靠equals方法的比较
             Set集合不能存入equals比较为true的元素两次
          */
-//        Collection c = new ArrayList();
-        Collection c = new HashSet();
+        Collection c = new ArrayList();
+//        Collection c = new HashSet();
         c.add(new Point(1, 2));
         c.add(new Point(3, 4));
         c.add(new Point(5, 6));
