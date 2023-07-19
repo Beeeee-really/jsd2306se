@@ -52,7 +52,7 @@ public class Point {
         this.y = y;
     }
 
-
+    
     public static void doSome (Point p ){
         p.setX(5);
     }
