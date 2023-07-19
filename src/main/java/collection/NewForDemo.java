@@ -36,13 +36,13 @@ public class NewForDemo {
             String e = (String) o;
             System.out.println(e);
         }
-/*
-                public interface Iterator<E> {
-                    boolean hasNext();
-                    E next();
-                }
-                迭代器也支持泛型，指定时与其他遍历的集合
- */
+        /*
+            public interface Iterator<E> {
+                boolean hasNext();
+                E next();
+            }
+            迭代器也支持泛型，指定时与其他遍历的集合
+        */
         Iterator it = c.iterator();
         while (it.hasNext()) {
             String e = (String) it.next();
