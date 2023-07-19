@@ -62,7 +62,7 @@ public class CollectionDemo1 {
          */
         boolean isEmpty = b.isEmpty();
         System.out.println("是否是空集:" + isEmpty);
-        
+
 
 
 
