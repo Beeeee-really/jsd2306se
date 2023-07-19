@@ -22,6 +22,10 @@ public class CollectionDemo3 {
         System.out.println("p:" + p);
         System.out.println("c:" + c);
 
+        Point.doSome(p);
+        System.out.println("p:" + p);
+        System.out.println("c:" + c);
+
 
     }
 }

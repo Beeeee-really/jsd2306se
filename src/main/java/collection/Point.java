@@ -51,4 +51,9 @@ public class Point {
     public void setY(int y) {
         this.y = y;
     }
+
+
+    public static void doSome (Point p ){
+        p.setX(5);
+    }
 }
