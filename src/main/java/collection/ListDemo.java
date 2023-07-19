@@ -1,7 +1,6 @@
 package collection;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -54,8 +53,8 @@ public class ListDemo {
          */
 
         list.set(2, "three");
-        for (int i = 0; i < e.length() - 1; i += 1) {
-            list.set(i, list.set(e.length() - i, list.get(i)));
+        for (int i = 0; i < list.size() / 2; i += 1) {
+            list.set(i, list.set(list.size() - i - 1, list.get(i)));
         }
         System.out.println(list);
     }
