@@ -53,6 +53,7 @@ public class ListDemo {
          */
 
         list.set(2, "three");
+        list.add("six");
         for (int i = 0; i < list.size() / 2; i += 1) {
             list.set(i, list.set(list.size() - i - 1, list.get(i)));
         }
