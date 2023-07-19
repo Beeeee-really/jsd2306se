@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * 集合重载了一对add,remove方法，通过下标进行操作
+ * <p>
+ * @author Beeeee
  */
 public class ListDemo2 {
     public static void main(String[] args) {
@@ -27,5 +29,16 @@ public class ListDemo2 {
         System.out.println(list);
 
 
+
+
+
+        /*
+            E remove(int index)
+            删除并返回指定位置上的元素
+         */
+//        [one, two, six, four, five]
+        String old = list.remove(2);
+        System.out.println(list);
+        System.out.println(old);
     }
 }
