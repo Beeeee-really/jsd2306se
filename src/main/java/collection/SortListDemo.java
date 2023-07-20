@@ -20,13 +20,12 @@ public class SortListDemo {
         }
         System.out.println(list);
 
-//        Collections.sort(list);w
+//        Collections.sort(list);
 
         //定义比较器
         Comparator<Integer> c = new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
-
                 return o2 - o1;
             }
 
