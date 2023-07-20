@@ -1,9 +1,10 @@
 package file;
 
 import java.io.File;
+import java.io.IOException;
 
 public class CreateNewFileDemo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //在当前项目目录下创建一个文件
         File file = new File("./test.txt");
         /*
@@ -14,6 +15,7 @@ public class CreateNewFileDemo {
             System.out.println("该文件已存在");
         }else{
             file.createNewFile();
+            System.out.println("文件已创建");
         }
     }
 }
