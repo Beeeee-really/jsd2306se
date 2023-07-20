@@ -2,6 +2,7 @@ package collection;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class SortListDemo3 {
@@ -16,8 +17,19 @@ public class SortListDemo3 {
         list.add("你");
         list.add("驱蚊器");
         System.out.println(list);
-        Collections.sort(list);
+//        Collections.sort(list);
+        /*
+            定义比较器：字符多的大
+         */
+        Comparator<String> c = new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.length() - o2.length();
+            }
+        };
+        Collections.sort(list, c);
         System.out.println(list);
+
 
     }
 }
