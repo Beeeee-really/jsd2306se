@@ -26,28 +26,60 @@ public class SortListDemo2 {
             此时此操作就称为侵入性
             侵入性不利于程序的维护和扩展，实际开发中应当尽力避免
          */
-        MyComparator c = new MyComparator();
-        Collections.sort(list, c);
+//        MyComparator c = new MyComparator();
 
-        System.out.println(list);
-    }
-}
-
-class MyComparator implements Comparator<Point> {
-
-    @Override
-    public int compare(Point o1, Point o2) {
-        //o1点到原点的距离
-        int olen1 = o1.getX() * o1.getY() * o1.getY();
-        //o2点到原点的距离
-        int olen2 = o2.getX() * o2.getX() + o2.getY() * o2.getY();
+        Comparator<Point> c = new Comparator<Point>() {
+            public int compare(Point o1, Point o2) {
+                //o1点到原点的距离
+                int olen1 = o1.getX() * o1.getY() * o1.getY();
+                //o2点到原点的距离
+                int olen2 = o2.getX() * o2.getX() + o2.getY() * o2.getY();
         /*
             返回值要求
             如果方法认为o1>o2此时应当返回一个>0的整数
             ...
          */
-        return 0;
+                return 0;
+            }
+
+        };
+
+        Collections.sort(list, c);
+
+//        Collections.sort(list, new Comparator<Point>() {
+//            public int compare(Point o1, Point o2) {
+//                //o1点到原点的距离
+//                int olen1 = o1.getX() * o1.getY() * o1.getY();
+//                //o2点到原点的距离
+//                int olen2 = o2.getX() * o2.getX() + o2.getY() * o2.getY();
+//        /*
+//            返回值要求
+//            如果方法认为o1>o2此时应当返回一个>0的整数
+//            ...
+//         */
+//                return 0;
+//            }
+//        });
+
+        System.out.println(list);
     }
 }
+
+//class MyComparator implements Comparator<Point> {
+//
+//    @Override
+//    public int compare(Point o1, Point o2) {
+//        //o1点到原点的距离
+//        int olen1 = o1.getX() * o1.getY() * o1.getY();
+//        //o2点到原点的距离
+//        int olen2 = o2.getX() * o2.getX() + o2.getY() * o2.getY();
+//        /*
+//            返回值要求
+//            如果方法认为o1>o2此时应当返回一个>0的整数
+//            ...
+//         */
+//        return 0;
+//    }
+//}
 
 
