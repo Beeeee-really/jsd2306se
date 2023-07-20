@@ -37,5 +37,6 @@ public class ListDemo3 {
         list.subList(2,9).clear();
 
         System.out.println(list);//[0,1,9]
+
     }
 }
