@@ -21,12 +21,20 @@ public class SortListDemo3 {
         /*
             定义比较器：字符多的大
          */
-        Comparator<String> c = new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o2.length() - o1.length();//降序
-//                return o1.length() - o2.length();//升序
-            }
+//        Comparator<String> c = new Comparator<String>() {
+//            @Override
+//            public int compare(String o1, String o2) {
+//                return o2.length() - o1.length();//降序
+////                return o1.length() - o2.length();//升序
+//            }
+//        };
+
+
+
+        //lambda写法
+        Comparator<String> c = (o1,o2)->{
+            return o1.length()-o2.length();
+//            return o2.length()-o1.length();
         };
         Collections.sort(list, c);
         System.out.println(list);
