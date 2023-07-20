@@ -25,7 +25,23 @@ public class LambdaDemo2 {
                 System.out.println(o);
             }
         };
-
+        /*
+                    V
+           如果lambda表达式中只有一个参数时，"()"可以不写
+         */
         c.forEach(consumer);
+        c.forEach((o) -> System.out.println(o));
+        /*
+            如果lambda表达式中使用的参数与方法体中代码调用的方法参数一致时，可以使用方法引用写法
+
+             c.forEach((o) -> System.out.println(o));
+             lambada参数          方法体中调用方法时传入的参数
+                        可以使用方法引用的写法
+                        System.out::println
+
+
+
+         */
+        c.forEach(System.out::println);
     }
 }
