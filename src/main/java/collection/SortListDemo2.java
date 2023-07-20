@@ -1,9 +1,6 @@
 package collection;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * 演示排序自定义类型的元素
@@ -11,11 +8,11 @@ import java.util.List;
 public class SortListDemo2 {
     public static void main(String[] args) {
         List<Point> list = new ArrayList<>();
-        list.add(new Point(1,2));
-        list.add(new Point(3,4));
-        list.add(new Point(5,6));
-        list.add(new Point(7,8));
-        list.add(new Point(9,10));
+        list.add(new Point(1, 2));
+        list.add(new Point(3, 4));
+        list.add(new Point(5, 6));
+        list.add(new Point(7, 8));
+        list.add(new Point(9, 10));
         System.out.println(list);
         /*
             compare:比较
@@ -29,8 +26,28 @@ public class SortListDemo2 {
             此时此操作就称为侵入性
             侵入性不利于程序的维护和扩展，实际开发中应当尽力避免
          */
-        Collections.sort(list);
+        MyComparator c = new MyComparator();
+        Collections.sort(list, c);
 
         System.out.println(list);
     }
 }
+
+class MyComparator implements Comparator<Point> {
+
+    @Override
+    public int compare(Point o1, Point o2) {
+        //o1点到原点的距离
+        int olen1 = o1.getX() * o1.getY() * o1.getY();
+        //o2点到原点的距离
+        int olen2 = o2.getX() * o2.getX() + o2.getY() * o2.getY();
+        /*
+            返回值要求
+            如果方法认为o1>o2此时应当返回一个>0的整数
+            ...
+         */
+        return 0;
+    }
+}
+
+
