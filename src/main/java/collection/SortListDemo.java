@@ -20,23 +20,19 @@ public class SortListDemo {
         }
         System.out.println(list);
 
-//        Collections.sort(list);
+//        Collections.sort(list);w
 
         //定义比较器
-        Comparator<Object> c = new Comparator<Object>() {
+        Comparator<Integer> c = new Comparator<Integer>() {
             @Override
-            public int compare(Object o1, Object o2) {
-                return 0;
-            }
+            public int compare(Integer o1, Integer o2) {
 
-
-            public int compare(int o1, int o2) {
                 return o2 - o1;
             }
+
+
         };
         Collections.sort(list, c);
-
-
         System.out.println(list);
     }
 }
