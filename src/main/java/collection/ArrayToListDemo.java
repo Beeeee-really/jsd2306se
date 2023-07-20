@@ -1,5 +1,6 @@
 package collection;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -29,5 +30,19 @@ public class ArrayToListDemo {
         System.out.println(Arrays.toString(arrays));
 
 //        list.add("qwq");
+
+
+
+        /*
+            如果希望对集合做增删操作，需要自行再创建一个集合并包含数组转换出来集合中的所有元素即可
+         */
+
+        ArrayList<String> list2 = new ArrayList<>(list);
+//        list2.addAll(list);
+
+        list2.add("seven");
+        System.out.println(list2);
+        System.out.println(list);
+        System.out.println(Arrays.toString(arrays));
     }
 }
