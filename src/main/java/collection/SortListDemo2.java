@@ -28,24 +28,6 @@ public class SortListDemo2 {
          */
 //        MyComparator c = new MyComparator();
 
-        Comparator<Point> c = new Comparator<Point>() {
-            public int compare(Point o1, Point o2) {
-                //o1点到原点的距离
-                int olen1 = o1.getX() * o1.getY() * o1.getY();
-                //o2点到原点的距离
-                int olen2 = o2.getX() * o2.getX() + o2.getY() * o2.getY();
-        /*
-            返回值要求
-            如果方法认为o1>o2此时应当返回一个>0的整数
-            ...
-         */
-                return 0;
-            }
-
-        };
-
-        Collections.sort(list, c);
-
 //        Collections.sort(list, new Comparator<Point>() {
 //            public int compare(Point o1, Point o2) {
 //                //o1点到原点的距离
@@ -60,6 +42,19 @@ public class SortListDemo2 {
 //                return 0;
 //            }
 //        });
+
+        Comparator<Point> c = new Comparator<Point>() {
+            public int compare(Point o1, Point o2) {
+                int olen1 = o1.getX() * o1.getY() * o1.getY();
+                int olen2 = o2.getX() * o2.getX() + o2.getY() * o2.getY();
+                return 0;
+            }
+
+        };
+
+        Collections.sort(list, c);
+
+
 
         System.out.println(list);
     }
