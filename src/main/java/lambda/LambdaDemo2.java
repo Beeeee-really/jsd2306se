@@ -43,5 +43,7 @@ public class LambdaDemo2 {
 
          */
         c.forEach(System.out::println);
+
+
     }
 }
