@@ -14,6 +14,13 @@ public class ListFilesDemo {
             返回true则说明
          */
         if (file.isDirectory()) {
+
+
+            /*
+                File[] listFiles()
+                将当前File对象表示的目录中所有子项返回。每一个子项用一个File对象表示
+                最终以数组形式将它们返回。
+             */
             File[] subs = file.listFiles();
             System.out.println(subs.length);
             for (File sub : subs) {
