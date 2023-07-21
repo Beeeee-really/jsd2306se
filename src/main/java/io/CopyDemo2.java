@@ -18,10 +18,10 @@ public class CopyDemo2 {
         byte[] data = new byte[1024 * 10];//10kb
         long start = System.currentTimeMillis();
         while ((len = fis.read(data)) != -1) {
-            fos.write(data);
+            fos.write(data, 0, len);
         }
         long end = System.currentTimeMillis();
-        System.out.println("复制完毕,用时:" + (end - start)+"ms");
+        System.out.println("复制完毕,用时:" + (end - start) + "ms");
         fis.close();
         fos.close();
 
