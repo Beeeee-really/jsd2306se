@@ -21,6 +21,9 @@ public class WriteStringDemo {
          */
         byte[] data = line.getBytes(StandardCharsets.UTF_8);
         fos.write(data);
+
+        fos.write("awa awa awa".getBytes(StandardCharsets.UTF_8));
+
         System.out.println("写出完毕");
         fos.close();
     }
