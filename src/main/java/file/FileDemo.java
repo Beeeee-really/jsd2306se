@@ -8,6 +8,7 @@ import java.io.File;
  * <p>使用File可以:
  * <p>1:创建文件
  * <p>2:访问目录
+ * <p>3:访问文件属性
  * <p></p>Flie不能访问文档数据
  */
 public class FileDemo {
