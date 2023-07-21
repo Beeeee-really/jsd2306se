@@ -14,18 +14,17 @@ public class ListFilesDemo2 {
     public static void main(String[] args) {
         File dir = new File(".");
         if (dir.isDirectory()) {
-            FileFilter fileFilter = new FileFilter() {
-                @Override
-                public boolean accept(File pathname) {
-                    String name = pathname.getName();
-                    return name.contains("a");
-                    /*
-                        String提供的方法
-                        boolean contains(String str)
-                        判断当前字符串是否包含给定内容，包含则返回true
-                     */
-                }
+            FileFilter fileFilter = pathname -> {
+                String name = pathname.getName();
+                return name.contains("a");
+                /*
+                    String提供的方法
+                    boolean contains(String str)
+                    判断当前字符串是否包含给定内容，包含则返回true
+                 */
             };
+            //            File[] subs = dir.listFiles(f -> f.getName().contains("a"));
+
 
             File[] subs = dir.listFiles(fileFilter);
             System.out.println(subs.length);
