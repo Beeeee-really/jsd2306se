@@ -11,7 +11,7 @@ public class ExceptionAPIDemo {
             System.out.println(Integer.parseInt(name));
         } catch (NumberFormatException e) {
             System.out.println("出错了");
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
         System.out.println("程序结束了");
         System.err.println("程序结束了");
