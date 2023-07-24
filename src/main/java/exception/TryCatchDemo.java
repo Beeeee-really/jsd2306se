@@ -19,7 +19,8 @@ public class TryCatchDemo {
             System.out.println(line.length());
             System.out.println(line.charAt(0));
             System.out.println(Integer.parseInt(line));
-            System.out.println("!!!!!!!!!!!!!!!!");//不执行
+//            try中某句代码异常，则后续代码不执行
+            System.out.println("!!!!!!!!!!!!!!!!");
 //        } catch (NullPointerException e) {
 //            //当try中出现空指针异常后的处理代码(B计划)
 //            System.out.println("出现了空指针并处理完毕");
@@ -32,7 +33,7 @@ public class TryCatchDemo {
                 如果上面的捕获可以处理异常，则不执行下面的捕获
              */
             System.out.println("异常");
-        }catch (Exception e){
+        } catch (Exception e) {
             //某个超类型异常，则try中出现他的一类型宜异常时都可以被其处理
             System.out.println("emm...");
         }
