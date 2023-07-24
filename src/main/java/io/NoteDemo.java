@@ -22,6 +22,7 @@ public class NoteDemo {
             answer = scan.nextLine();
             if ("/exit".equals(answer)) {
                 System.out.println("bye!");
+                fos.close();
                 break;
             } else {
                 fos.write(answer.getBytes(StandardCharsets.UTF_8));

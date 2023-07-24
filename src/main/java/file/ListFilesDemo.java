@@ -11,7 +11,7 @@ public class ListFilesDemo {
         File file = new File(".");
         /*
             boolean isFile
-            返回true则说明
+            返回true则说明是文件
          */
         if (file.isDirectory()) {
 
@@ -26,7 +26,6 @@ public class ListFilesDemo {
             for (File sub : subs) {
                 System.out.println(sub.getName());
             }
-
         }
     }
 }
