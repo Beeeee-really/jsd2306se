@@ -14,9 +14,12 @@ public class TryCatchDemo {
         System.out.println("程序开始了");
         try {
 //            String line = null;
-            String line = "";
+//            String line = "";
+            String line = "abc";
             System.out.println(line.length());
             System.out.println(line.charAt(0));
+            System.out.println(Integer.parseInt(line));
+            System.out.println("!!!!!!!!!!!!!!!!");//不执行
 //        } catch (NullPointerException e) {
 //            //当try中出现空指针异常后的处理代码(B计划)
 //            System.out.println("出现了空指针并处理完毕");
@@ -25,7 +28,13 @@ public class TryCatchDemo {
 //        }
         } catch (NullPointerException | StringIndexOutOfBoundsException e) {
 //            当针对多个异常有相同解决办法时，可以合并在一起写
+            /*
+                如果上面的捕获可以处理异常，则不执行下面的捕获
+             */
             System.out.println("异常");
+        }catch (Exception e){
+            //某个超类型异常，则try中出现他的一类型宜异常时都可以被其处理
+            System.out.println("emm...");
         }
 
         System.out.println("程序结束了");
