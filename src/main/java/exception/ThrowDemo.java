@@ -5,6 +5,8 @@ package exception;
  */
 public class ThrowDemo {
     public static void main(String[] args) {
-
+        Person p = new Person();
+        p.setAge(1000000);
+        System.out.println("此人年龄:" + p.getAge());
     }
 }
