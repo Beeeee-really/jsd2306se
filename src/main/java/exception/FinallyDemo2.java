@@ -24,7 +24,5 @@ public class FinallyDemo2 {
                 e.printStackTrace();
             }
         }
-
-
     }
 }
