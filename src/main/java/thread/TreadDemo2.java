@@ -3,7 +3,7 @@ package thread;
 /**
  * 第二种创建线程的方法
  *
- * <p>通过实现Runable接口或Callable接口来定义线程任务
+ * <p>通过实现Runnable接口或Callable接口来定义线程任务
  */
 public class TreadDemo2 {
     public static void main(String[] args) {
