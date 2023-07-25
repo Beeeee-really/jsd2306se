@@ -25,7 +25,7 @@ public class Client {
          */
         try {
             System.out.println("正在连接服务端...");
-            socket = new Socket("176.46.103.238",8088);
+            socket = new Socket("localhost",8088);
             System.out.println("与服务端建立连接!");
         } catch (IOException e) {
             throw new RuntimeException(e);
