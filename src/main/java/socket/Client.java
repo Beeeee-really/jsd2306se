@@ -3,6 +3,7 @@ package socket;
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 /**
  * 聊天室客户端
@@ -36,6 +37,17 @@ public class Client {
             BufferedWriter bw = new BufferedWriter(osw);
 
             PrintWriter pw = new PrintWriter(bw, true);
+
+            Scanner scan = new Scanner(System.in);
+            System.out.println(":");
+            while (true) {
+                String line = scan.nextLine();
+                if ("exit".equals(line)) {
+                    break;
+                }
+                pw.println(line);
+            }
+
 
             pw.println("你好服务器!");
         } catch (IOException e) {

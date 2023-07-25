@@ -44,8 +44,10 @@ public class Server {
             InputStreamReader isr = new InputStreamReader(in);
 
             BufferedReader br = new BufferedReader(isr);
-
-            String message = br.readLine();
+            String message;
+            while ((message = br.readLine()) != null) {
+                System.out.println(message);
+            }
             System.out.println("客户端说:" + message);
         } catch (IOException e) {
             e.printStackTrace();
