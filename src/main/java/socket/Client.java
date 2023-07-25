@@ -30,6 +30,15 @@ public class Client {
             socket = new Socket("localhost", 8088);
             System.out.println("与服务端建立连接!");
 
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void start() {
+        try {
             OutputStream out = socket.getOutputStream();
 
             OutputStreamWriter osw = new OutputStreamWriter(out, StandardCharsets.UTF_8);
@@ -47,16 +56,15 @@ public class Client {
                 }
                 pw.println(line);
             }
-
-
-            pw.println("你好服务器!");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+        } finally {
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
-    }
-
-    public void start() {
 
     }
 
@@ -66,3 +74,4 @@ public class Client {
     }
 
 }
+

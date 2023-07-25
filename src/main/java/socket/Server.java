@@ -31,24 +31,27 @@ public class Server {
 
     public void start() {
         try {
-            System.out.println("等待客户端连接...");
-            Socket socket = serverSocket.accept();//阻塞
-            System.out.println("一个客户端连接了!");
+            while (true) {
+                System.out.println("等待客户端连接...");
+                Socket socket = serverSocket.accept();//阻塞
+                System.out.println("一个客户端连接了!");
+                InputStream in = socket.getInputStream();
+
+                InputStreamReader isr = new InputStreamReader(in);
+
+                BufferedReader br = new BufferedReader(isr);
+                String message;
+                while ((message = br.readLine()) != null) {
+                    System.out.println(message);
+                }
+
+            }
             /*
                 Socket重要的方法
                 InputStream getInputStream()
                 通过Socket获取的方法输入流可以读取远端计算机发送过来的数据
              */
-            InputStream in = socket.getInputStream();
 
-            InputStreamReader isr = new InputStreamReader(in);
-
-            BufferedReader br = new BufferedReader(isr);
-            String message;
-            while ((message = br.readLine()) != null) {
-                System.out.println(message);
-            }
-            System.out.println("客户端说:" + message);
         } catch (IOException e) {
             e.printStackTrace();
         }
