@@ -1,6 +1,9 @@
 package socket;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -31,6 +34,19 @@ public class Server {
             System.out.println("等待客户端连接...");
             Socket socket = serverSocket.accept();//阻塞
             System.out.println("一个客户端连接了!");
+            /*
+                Socket重要的方法
+                InputStream getInputStream()
+                通过Socket获取的方法输入流可以读取远端计算机发送过来的数据
+             */
+            InputStream in = socket.getInputStream();
+
+            InputStreamReader isr = new InputStreamReader(in);
+
+            BufferedReader br = new BufferedReader(isr);
+
+            String message = br.readLine();
+            System.out.println("客户端说:" + message);
         } catch (IOException e) {
             e.printStackTrace();
         }
