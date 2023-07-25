@@ -9,14 +9,20 @@ import java.util.Scanner;
  * 聊天室客户端
  */
 public class Client {
-    /*
-        java.net.Socket 套接字,英文原译:插座
 
-        Socket封装了TCP协议的通讯细节，使用它就可以
-     */
+
+
+
+    /*
+            java.net.Socket 套接字,英文原译:插座
+
+            Socket封装了TCP协议的通讯细节，使用它就可以
+         */
     private Socket socket;
 
     public Client() {
+
+
         /*
             Socket常用的构造器
             Socket(String host,int port)
@@ -38,6 +44,13 @@ public class Client {
     }
 
     public void start() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("名称:");
+        String name = scan.next();
+//        System.out.println("名称:");
+//        String name = scan.next();
+
+
         try {
             OutputStream out = socket.getOutputStream();
 
@@ -47,14 +60,15 @@ public class Client {
 
             PrintWriter pw = new PrintWriter(bw, true);
 
-            Scanner scan = new Scanner(System.in);
+
             System.out.println(":");
             while (true) {
                 String line = scan.nextLine();
                 if ("exit".equals(line)) {
                     break;
                 }
-                pw.println(line);
+                pw.println(name + ":" + line);
+//                pw.println(line);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -69,6 +83,9 @@ public class Client {
     }
 
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+
         Client client = new Client();
         client.start();
     }
