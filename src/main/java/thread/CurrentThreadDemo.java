@@ -10,5 +10,11 @@ public class CurrentThreadDemo {
     public static void main(String[] args) {
         Thread main = Thread.currentThread();//获取运行main方法的主线程
         System.out.println(main);
+        doSome();
+    }
+
+    public static void doSome() {
+        Thread t = Thread.currentThread();
+        System.out.println(t);
     }
 }
