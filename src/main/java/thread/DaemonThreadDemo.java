@@ -7,4 +7,38 @@ package thread;
  * <p>当一个进程中的所有用户线程都结束时，进程就会结束，此时会杀死所有还在运行的守护线程
  */
 public class DaemonThreadDemo {
+    public static void main(String[] args) {
+        
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
