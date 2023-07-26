@@ -12,23 +12,34 @@ public class PriorityDemo {
     public static void main(String[] args) {
         Thread min = new Thread() {
             public void run() {
-                for (int i = 0; i < 1000; i++) {
+                for (int i = 0; i < 10000; i++) {
                     System.out.println("hello world!");
                 }
             }
         };
         Thread max = new Thread() {
             public void run() {
-                for (int i = 0; i < 1000; i++) {
+                for (int i = 0; i < 10000; i++) {
                     System.out.println("hello java!");
                 }
             }
         };
 
-        min.setPriority(2);
-        max.setPriority(10);
+        Thread nor = new Thread() {
+            public void run() {
+                for (int i = 0; i < 10000; i++) {
+                    System.out.println("hi!");
+                }
+            }
+        };
+
+        //设置优先级
+        min.setPriority(Thread.MAX_PRIORITY);//设置优先级
+        max.setPriority(Thread.MIN_PRIORITY);//线程的最小/最大优先级
+        nor.setPriority(Thread.NORM_PRIORITY);
 
         min.start();
         max.start();
+        nor.start();
     }
 }
