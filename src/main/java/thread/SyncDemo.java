@@ -18,9 +18,10 @@ public class SyncDemo {
             }
         };
         Thread thread2 = new Thread() {
-            public void run() {
+            public synchronized void run() {
                 while (true) {
                     int beans = table.getBeans();
+                    Thread.yield();
                     System.out.println(getName() + beans);
                 }
             }
@@ -33,10 +34,11 @@ public class SyncDemo {
 class Table {
     private int beans = 20;
 
-    public int getBeans() {
+    public synchronized int getBeans() {
         if (beans == 0) {
             throw new RuntimeException("没有豆子了!");
         }
+        Thread.yield();
         return beans -= 1;
     }
 }
