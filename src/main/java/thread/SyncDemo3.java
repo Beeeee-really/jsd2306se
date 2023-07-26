@@ -6,6 +6,20 @@ package thread;
 public class SyncDemo3 {
     public static void main(String[] args) {
 //        Thread t1 = new Thread(() -> Boo.doSome());
+//
+//        Boo b1 = new Boo();
+//        Boo b2 = new Boo();
+//        Thread t1 = new Thread() {
+//            public void run() {
+//                b1.doSome();
+//            }
+//        };
+//        Thread t2 = new Thread() {
+//            public void run() {
+//                b2.doSome();
+//            }
+//        };
+
 
         Thread t1 = new Thread(Boo::doSome);
         Thread t2 = new Thread(Boo::doSome);
@@ -24,6 +38,6 @@ class Boo {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
+        System.out.println("doSome方法执行完毕!");
     }
 }
