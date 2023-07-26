@@ -1,8 +1,11 @@
 package thread;
 
 /**
+ *
  * sleep方法要求必须处理异常
+ *
  * <p></p>当一个线程调用sleep方法进入阻塞的过程中该线程的interrupt()方法被调用，那么该线程会立即中断
+ *
  */
 public class SleepDemo2 {
     public static void main(String[] args) {
