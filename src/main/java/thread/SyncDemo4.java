@@ -23,6 +23,7 @@ class Foo {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("执行完毕");
     }
 
 
@@ -34,5 +35,6 @@ class Foo {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("执行完毕");
     }
 }
