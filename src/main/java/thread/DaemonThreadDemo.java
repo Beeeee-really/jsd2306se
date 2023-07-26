@@ -40,6 +40,11 @@ public class DaemonThreadDemo {
         rose.start();
         jack.setDaemon(true);
         jack.start();
+
+        /*
+            如果主线程存活，那么进程不会因为1rose线程结束而结束，此时也就不会杀死jack这条进程了
+         */
+        while (true) ;
     }
 }
 
