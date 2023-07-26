@@ -33,7 +33,7 @@ class Shop {
             Thread.sleep(5000);
             /*
                 同步块使用时必须指定一个同步监视器对象
-                必须是一个引用类的对象
+                必须是一个引用类的对象   
                 ...
              */
             synchronized (this) {
