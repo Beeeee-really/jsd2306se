@@ -29,5 +29,6 @@ public class Demo1 {
 
         Thread.sleep(50);
         System.out.println(sb.length());
+        System.out.println(sb);
     }
 }
