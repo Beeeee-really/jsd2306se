@@ -30,14 +30,16 @@ public class SyncDemo3 {
 
 
 class Boo {
-    public synchronized static void doSome() {
-        Thread t = Thread.currentThread();
-        System.out.println(t.getName() + ":正在执行doSome方法...");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+    public static void doSome() {
+        synchronized (Boo.class) {
+            Thread t = Thread.currentThread();
+            System.out.println(t.getName() + ":正在执行doSome方法...");
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("doSome方法执行完毕!");
         }
-        System.out.println("doSome方法执行完毕!");
     }
 }
