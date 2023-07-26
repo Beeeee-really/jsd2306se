@@ -8,7 +8,38 @@ package thread;
  */
 public class DaemonThreadDemo {
     public static void main(String[] args) {
-        
+        Thread rose = new Thread() {
+            public void run() {
+                for (int i = 0; i < 5; i++) {
+                    System.out.println("qwq");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                System.out.println("awa");
+                System.out.println("ψ(._. )>");
+
+            }
+        };
+
+        Thread jack = new Thread() {
+            public void run() {
+                while (true) {
+                    System.out.println("UwU");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        };
+
+        rose.start();
+        jack.setDaemon(true);
+        jack.start();
     }
 }
 
