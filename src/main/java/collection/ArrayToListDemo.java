@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 数组转换为List集合
  * <p>数组的工具类java.util.Arrays提供了一个静态方法asList，可以将一个数组转换为List集合
- * <p>
+ * <p> D
  *
  * @author Beeeee
  */

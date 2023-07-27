@@ -90,7 +90,12 @@ public class Server {
                 pw = new PrintWriter(bw, true);
 
                 //将该客户端的输出流存入共享集合
-                allOut.add(pw);
+                /*
+                    临界资源通常可以作为同步监视器对象使用，限制多个线程不能同时操作它
+                 */
+                synchronized (allOut) {
+                    allOut.add(pw);
+                }
                 sendMessage("ip:" + host + "连接了服务器,当前在线人数:" + allOut.size());
 
 
@@ -106,7 +111,9 @@ public class Server {
             } finally {
                 //客户端断开连接
                 //1.将该客户端的输出流删除
-                allOut.remove(pw);
+                synchronized (allOut) {
+                    allOut.remove(pw);
+                }
                 sendMessage("ip:" + host + "与服务器断开了连接,当前在线人数:" + allOut.size());
                 //2.关闭Socket来释放资源
                 try {
@@ -122,8 +129,11 @@ public class Server {
         private void sendMessage(String message) {
             System.out.println(message);
             //将消息发送至所有客户端
-            for (PrintWriter o : allOut) {
-                o.println(message);
+            synchronized (allOut) {//增删互斥
+                //因为新循环(迭代器)遍历集合时要求不能通过集合方法增删元素，因此要与增删互斥
+                for (PrintWriter o : allOut) {
+                    o.println(message);
+                }
             }
         }
     }
