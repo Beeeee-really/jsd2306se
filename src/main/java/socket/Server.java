@@ -107,6 +107,7 @@ public class Server {
                 //客户端断开连接
                 //1.将该客户端的输出流删除
                 allOut.remove(pw);
+                sendMessage("ip:" + host + "与服务器断开了连接,当前在线人数:" + allOut.size());
                 //2.关闭Socket来释放资源
                 try {
                     socket.close();
@@ -118,7 +119,7 @@ public class Server {
 
 
         //将消息广播
-        private void sendMessage(String message){
+        private void sendMessage(String message) {
             System.out.println(message);
             //将消息发送至所有客户端
             for (PrintWriter o : allOut) {
