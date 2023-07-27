@@ -36,5 +36,6 @@ class Foo {
             throw new RuntimeException(e);
         }
         System.out.println("执行完毕");
+
     }
 }

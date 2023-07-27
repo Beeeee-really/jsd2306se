@@ -1,4 +1,7 @@
 # jsd2306se
 
-this project is notes:)
-
+## 1.use
+```java
+/*
+    this project is a note:)
+*/
