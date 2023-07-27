@@ -76,6 +76,7 @@ public class Server {
         }
 
         public void run() {
+            PrintWriter pw = null;
             try {
                 InputStream in = socket.getInputStream();
                 InputStreamReader isr = new InputStreamReader(in, StandardCharsets.UTF_8);
@@ -86,24 +87,42 @@ public class Server {
                 OutputStream out = socket.getOutputStream();//获取输出流
                 OutputStreamWriter osw = new OutputStreamWriter(out, StandardCharsets.UTF_8);//
                 BufferedWriter bw = new BufferedWriter(osw);//缓冲流
-                PrintWriter pw = new PrintWriter(bw, true);
+                pw = new PrintWriter(bw, true);
 
                 //将该客户端的输出流存入共享集合
                 allOut.add(pw);
+                sendMessage("ip:" + host + "连接了服务器,当前在线人数:" + allOut.size());
 
 
                 String message;
 
                 while ((message = br.readLine()) != null) {
 //                    System.out.println(host + ":" + message);
-                    System.out.println(message);
+                    sendMessage(message);
                     //将消息发送至所有客户端
-                    for (PrintWriter o : allOut) {
-                        o.println(message);
-                    }
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
+            } finally {
+                //客户端断开连接
+                //1.将该客户端的输出流删除
+                allOut.remove(pw);
+                //2.关闭Socket来释放资源
+                try {
+                    socket.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+
+
+        //将消息广播
+        private void sendMessage(String message){
+            System.out.println(message);
+            //将消息发送至所有客户端
+            for (PrintWriter o : allOut) {
+                o.println(message);
             }
         }
     }

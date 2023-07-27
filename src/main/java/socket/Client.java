@@ -91,7 +91,7 @@ public class Client {
                 if ("exit".equals(line)) {
                     break;
                 }
-                pw.println(name + ":" + line);
+                pw.println(name  + ":" + line);
 //                pw.println(line);
 
 
