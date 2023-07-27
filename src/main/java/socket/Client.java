@@ -50,6 +50,13 @@ public class Client {
 
 
         try {
+            //启动用于读取消息的线程
+            //方法2
+            ServerHandler handler = new ServerHandler();
+            Thread t1 = new Thread(handler);
+            t1.setDaemon(true);
+            t1.start();
+
             OutputStream out = socket.getOutputStream();
 
             OutputStreamWriter osw = new OutputStreamWriter(out, StandardCharsets.UTF_8);
@@ -58,13 +65,22 @@ public class Client {
 
             PrintWriter pw = new PrintWriter(bw, true);
 
-
-            //通过socket获取输入流
-            InputStream inputStream = socket.getInputStream();
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-
+//方法1
+//            Thread t1 = new Thread() {
+//                public void run() {
+//                    while (true) {
+//                        String line;
+//                        try {
+//                            line = bufferedReader.readLine();
+//                        } catch (IOException e) {
+//                            throw new RuntimeException(e);
+//                        }
+//                        System.out.println(line);
+//                    }
+//                }
+//            };
+//
+//            t1.start();
 
             System.out.println(":");
             while (true) {
@@ -75,8 +91,11 @@ public class Client {
                 pw.println(name + ":" + line);
 //                pw.println(line);
 
-                line = bufferedReader.readLine();
-                System.out.println(line);
+
+//                line = bufferedReader.readLine();
+//                System.out.println(line);
+
+
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -96,6 +115,27 @@ public class Client {
 
         Client client = new Client();
         client.start();
+
+
+    }
+
+    private class ServerHandler implements Runnable {
+        public void run() {
+            //通过socket获取输入流
+            try {
+                InputStream inputStream = socket.getInputStream();
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                String message;
+                while ((message = bufferedReader.readLine()) != null) {
+                    System.out.println(message);
+                }
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
 }
