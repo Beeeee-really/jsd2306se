@@ -1,11 +1,9 @@
 package socket;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 
 /**
  * 聊天室服务端
@@ -73,12 +71,22 @@ public class Server {
         public void run() {
             try {
                 InputStream in = socket.getInputStream();
-                InputStreamReader isr = new InputStreamReader(in);
+                InputStreamReader isr = new InputStreamReader(in,StandardCharsets.UTF_8);
                 BufferedReader br = new BufferedReader(isr);
+
+
+                //通过socket获取输出流
+                OutputStream out = socket.getOutputStream();//获取输出流
+                OutputStreamWriter osw = new OutputStreamWriter(out, StandardCharsets.UTF_8);//
+                BufferedWriter bw = new BufferedWriter(osw);//缓冲流
+                PrintWriter pw = new PrintWriter(bw,true);
+
+
                 String message;
                 while ((message = br.readLine()) != null) {
 //                    System.out.println(host + ":" + message);
                     System.out.println(message);
+                    pw.println(message);
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);

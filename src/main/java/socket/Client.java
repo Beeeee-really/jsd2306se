@@ -11,8 +11,6 @@ import java.util.Scanner;
 public class Client {
 
 
-
-
     /*
             java.net.Socket 套接字,英文原译:插座
 
@@ -61,6 +59,13 @@ public class Client {
             PrintWriter pw = new PrintWriter(bw, true);
 
 
+            //通过socket获取输入流
+            InputStream inputStream = socket.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+
+
             System.out.println(":");
             while (true) {
                 String line = scan.nextLine();
@@ -69,6 +74,9 @@ public class Client {
                 }
                 pw.println(name + ":" + line);
 //                pw.println(line);
+
+                line = bufferedReader.readLine();
+                System.out.println(line);
             }
         } catch (IOException e) {
             e.printStackTrace();
