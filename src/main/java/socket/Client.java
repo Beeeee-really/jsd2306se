@@ -52,10 +52,10 @@ public class Client {
         try {
             //启动用于读取消息的线程
             //方法2
-            ServerHandler handler = new ServerHandler();
-            Thread t1 = new Thread(handler);
-            t1.setDaemon(true);
-            t1.start();
+//            ServerHandler handler = new ServerHandler();
+//            Thread t1 = new Thread(handler);
+//            t1.setDaemon(true);
+//            t1.start();
 
             OutputStream out = socket.getOutputStream();
 
@@ -64,23 +64,26 @@ public class Client {
             BufferedWriter bw = new BufferedWriter(osw);
 
             PrintWriter pw = new PrintWriter(bw, true);
+            InputStream inputStream = socket.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
 //方法1
-//            Thread t1 = new Thread() {
-//                public void run() {
-//                    while (true) {
-//                        String line;
-//                        try {
-//                            line = bufferedReader.readLine();
-//                        } catch (IOException e) {
-//                            throw new RuntimeException(e);
-//                        }
-//                        System.out.println(line);
-//                    }
-//                }
-//            };
-//
-//            t1.start();
+            Thread t1 = new Thread() {
+                public void run() {
+                    while (true) {
+                        String line;
+                        try {
+                            line = bufferedReader.readLine();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        System.out.println(line);
+                    }
+                }
+            };
+
+            t1.start();
 
             System.out.println(":");
             while (true) {
