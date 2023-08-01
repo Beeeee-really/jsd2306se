@@ -1,5 +1,6 @@
 package map;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -45,6 +46,12 @@ public class MapDemo2 {
             System.out.println(key + ":" + value);
         }
 
+        Collection<Integer> values = map.values();
+        for (Integer e : values) {
+            System.out.println(e);
+        }
+
+        map.forEach((k, v) -> System.out.println(k + ":" + v));
 
     }
 }
