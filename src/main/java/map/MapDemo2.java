@@ -3,6 +3,7 @@ package map;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.Map.Entry;
 
 /**
  * Map的遍历
@@ -31,6 +32,17 @@ public class MapDemo2 {
         Set<String> set = map.keySet();
         for (String key : set) {
             System.out.println(key);
+        }
+
+        /*
+            遍历每一组键值对
+            Set entrySet()
+         */
+        Set<Map.Entry<String, Integer>> entrySet = map.entrySet();
+        for (Entry<String, Integer> e : entrySet) {
+            String key = e.getKey();
+            Integer value = e.getValue();
+            System.out.println(key + ":" + value);
         }
 
 
