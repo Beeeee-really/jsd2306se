@@ -1,40 +1,46 @@
 package reflect;
 
 import reflect.annotations.AutoRunClass;
+import reflect.annotations.AutoRunMethod;
 
 /**
  * 使用当前类测试反射机制
  */
 @AutoRunClass
 public class Person {
+
     private String name = "张三";
     private int age = 22;
 
     public Person(){}
-
     public Person(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
+    @AutoRunMethod(4)
     public void sayHello(){
         System.out.println(name+":hello!");
     }
+    @AutoRunMethod
     public void sayHi(){
         System.out.println(name+":Hi!");
     }
     public void doSome(){
         System.out.println(name+":做某事");
     }
+    @AutoRunMethod(7)
     public void sleep(){
             System.out.println(name+":睡觉");
     }
+    @AutoRunMethod
     public void watchTV(){
         System.out.println(name+":看电视");
     }
     public void study(){
         System.out.println(name+":在学习");
     }
+    @AutoRunMethod
     public void playGame(){
         System.out.println(name+":玩游戏");
     }

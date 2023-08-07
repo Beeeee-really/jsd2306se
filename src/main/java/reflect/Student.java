@@ -1,15 +1,14 @@
 package reflect;
 
 import reflect.annotations.AutoRunClass;
+import reflect.annotations.AutoRunMethod;
 
 @AutoRunClass
 public class Student {
-//    @AutoRunClass
     private String name = "张三";
     private int age = 18;
     private char gender = '男';
 
-//    @AutoRunClass
     public Student(){}
 
     public Student(String name, int age, char gender) {
@@ -17,17 +16,15 @@ public class Student {
         this.age = age;
         this.gender = gender;
     }
-
+    @AutoRunMethod(2)
     public void study(){
         System.out.println(name+":good good study,day day up!");
     }
 
-//    @AutoRunClass
     public void sleep(){
         System.out.println(name+":睡个觉");
     }
 
-//    @AutoRunClass
     @Override
     public String toString() {
         return "Student{" +

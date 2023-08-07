@@ -5,7 +5,7 @@ import reflect.annotations.AutoRunMethod;
 
 @AutoRunClass
 public class Teacher {
-    @AutoRunMethod(65)
+    @AutoRunMethod
     public void teach(){
         System.out.println("老师在上课");
     }
