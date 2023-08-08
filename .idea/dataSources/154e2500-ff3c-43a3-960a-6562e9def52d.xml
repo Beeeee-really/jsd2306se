@@ -1209,8 +1209,8 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <Current>1</Current>
       <Grants>global_priv|||mariadb.sys|localhost|DELETE|G
 global_priv|||mariadb.sys|localhost|SELECT|G</Grants>
-      <IntrospectionTimestamp>2023-08-08.11:57:36</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-08-08.03:57:36</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-08-08.13:56:14</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-08-08.05:56:14</LocalIntrospectionTimestamp>
       <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="326" parent="1" name="performance_schema">
