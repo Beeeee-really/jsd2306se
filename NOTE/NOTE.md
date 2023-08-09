@@ -276,12 +276,15 @@ set create_date='1111-11-11'
 where id = 1;
 ```
 
-### 删除表中记录
+### 清空表中记录
 ```mariadb
 use jsd;
 delete
 from class
 where id = 2;
+
+
+truncate class;# 危 清空表中数据 数据不能恢复 不记录日志
 ```
 
 
