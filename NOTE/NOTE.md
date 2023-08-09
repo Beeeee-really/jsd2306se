@@ -181,6 +181,7 @@ create table if not exists class(# 不存在才创建
     id int primary key comment '班级id',# 主键约束:此id的值必须是唯一的，并且不允许为空(null)
     name varchar(50) comment '班级名称',# 50个字符 可变字符类型 允许字段为空(null)
     create_date date comment '班级创建日期'# date日期类型
+#     primary key (id) 也可以设置主键
 )
 ```
 <p></p>

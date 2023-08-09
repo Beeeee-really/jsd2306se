@@ -1,0 +1,10 @@
+drop database if exists JSD;
+create database if not exists JSD character set = utf8;
+use JSD;
+create table if not exists class(class_name varchar(100));
+create table if not exists student(id int,name varchar(50),birthday date);
+alter table class add update_time date;
+show databases;
+show tables;
+select * from class;
+select * from student;
