@@ -1,3 +1,8 @@
+<center>
+
+# Day01
+
+</center>
 ## MySQL
 
 ### 登录与登出
@@ -168,7 +173,7 @@ show tables;
 ```mariadb
 # create table jsd2306
 # (
-    #字段名 字段类型 字段约束,字段名 字段类型 字段约束,字段名 字段类型 字段约束,字段名 字段类型 字段约束,字段名 字段类型 字段约束,...
+#字段名 字段类型 字段约束,字段名 字段类型 字段约束,字段名 字段类型 字段约束,字段名 字段类型 字段约束,字段名 字段类型 字段约束,...
 # );编码与数据库一致
 ```
 
@@ -177,23 +182,113 @@ show tables;
 <p>创建一个表</p>
 
 ```mariadb
-create table if not exists class(# 不存在才创建
-    id int primary key comment '班级id',# 主键约束:此id的值必须是唯一的，并且不允许为空(null)
-    name varchar(50) comment '班级名称',# 50个字符 可变字符类型 允许字段为空(null)
+create table if not exists class
+(# 不存在才创建
+    id          int primary key comment '班级id',# 主键约束:此id的值必须是唯一的，并且不允许为空(null)
+    name        varchar(50) comment '班级名称',# 50个字符 可变字符类型 允许字段为空(null)
     create_date date comment '班级创建日期'# date日期类型
 #     primary key (id) 也可以设置主键
 )
 ```
+
 <p></p>
 
 ![屏幕截图 2023-08-08 174027.png](屏幕截图%202023-08-08%20174027.png)
-
 
 ### 删除表
 
 ```mariadb
 # drop table class;# 表名
 ```
+
+### alter
+
+<p>添加字段</p>
+
+```mariadb
+use jsd;
+alter table class
+    add create_time date;
+```
+
+<p>更改字段名称</p>
+
+```mariadb
+use jsd;
+alter table class
+    change create_date create_time date;
+```
+
+<p>在某字段之后</p>
+
+```mariadb
+use jsd;
+alter table class
+    add create_time date after create_date;
+# 在create_date后创建新的字段
+```
+
+### 重命名表格
+
+```mariadb
+rename table class to class;
+```
+
+<center>
+
+# Day02
+
+</center>
+
+## 表中数据的操作
+
+### 查询
+
+- 简单语法
+
+```mariadb
+use jsd;
+# 指定数据
+select update_time, create_date
+from class;
+
+# 所有数据
+select *
+from class;
+```
+
+### 添加数据
+
+- 语法
+
+```mariadb
+use jsd;
+insert into class (class_name, create_date, create_time, update_time)
+VALUES ('qwq', '1111 - 01 - 01', '1111 - 03 - 05', '1111 - 12 - 05');
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
