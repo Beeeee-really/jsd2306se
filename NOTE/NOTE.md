@@ -267,8 +267,8 @@ insert into class (id, create_date, create_time, update_time)
 VALUES (1, '1111 - 01 - 01', '1111 - 03 - 05', '1111 - 12 - 05');
 ```
 
-
 ### 更新表中记录
+
 ```mariadb
 use jsd;
 update class
@@ -277,6 +277,7 @@ where id = 1;
 ```
 
 ### 清空表中记录
+
 ```mariadb
 use jsd;
 delete
@@ -287,7 +288,42 @@ where id = 2;
 truncate class;# 危 清空表中数据 数据不能恢复 不记录日志
 ```
 
-### 
+## 表中字段的类型与约束
+
+> 字段类型决定了字段值的取值范围
+<p>
+
+**常见的类型**
+
+</p>
+
+### 数值型
+
+#### 整型
+
+> 整型(tinyint,smallint,mediumint,int,bigint)
+
+```mariadb
+
+```
+
+#### 浮点型
+
+> 浮点型(float[4],double[8],decimal[8]精确运算)
+
+### 字符型
+
+#### 定长字符(char)
+
+> 定义的字段为char(3) 不管是几个字符，长度始终是3 不够则补
+
+#### 变长字符(varchar)
+
+> 长度可变
+
+#### 文本类型(text)
+
+> 
 
 
 
