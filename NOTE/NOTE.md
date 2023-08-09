@@ -307,15 +307,190 @@ truncate class;# 危 清空表中数据 数据不能恢复 不记录日志
 
 #### 定长字符(char)
 
-> 定义的字段为char(3) 不管是几个字符，长度始终是3 不够则补
+> 定义的字段为char(3) 不管是几个字符，长度始终是3 不够自动用空格填充
 
-#### 变长字符(varchar)
+#### 变长字符varchar(n) 这里的n表示字节数，占用的字节数与实际占用的字符个数无关
 
 > 长度可变
 
-#### 文本类型(text)
+#### 文本类型tinytext(n),text,mediumtext,longtext
 
-> 
+> <p>1) tinytext(n) 这里的n表示字符数，取值范围为255个字符</p>
+> <p>2) text(n) 这里的n表示字符数，取值范围为0~65535个字符</p>
+> <p>3) </p>
+
+### 约束类型
+
+#### 主键约束
+
+> primary key(主键字段) 字段值必须唯一，且不能为空
+
+#### 非空约束
+
+> not none 字段值不能为空 字段值允许为null
+
+#### 唯一约束
+
+> unique 字段值必须唯一，可以为null
+
+#### 默认值约束
+
+> default 为字段设置默认值，假如字段没有赋值，则使用默认值
+
+#### 外键约束
+
+> foreign key 表之间建立关系时，使用的约束字段值
+
+#### 检查约束
+
+> check 字段应在指定范围内
+
+### 约束案例应用
+
+```mariadb
+drop database if exists Bee;
+create database if not exists Bee;
+use Bee;
+create table student
+(
+    id          int,
+    name        varchar(50)        not null,
+    age         int                not null check ( age > 0 | age < 150 ),
+    gender      enum ('male','female') default 'male',
+    phone       varchar(11) unique not null,
+    birthday    date               not null,
+    email       varchar(100)       not null unique,
+    create_time datetime               default current_timestamp,
+    update_time datetime               default current_timestamp
+);
+insert into student
+values (1, 'qwq', 149, 'female', '11111111111', '1111-11-11', 'email@example.com', null, null);
+select *
+from student;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
