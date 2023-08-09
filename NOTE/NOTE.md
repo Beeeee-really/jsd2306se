@@ -353,7 +353,7 @@ create database if not exists Bee;
 use Bee;
 create table student
 (
-    id          int,
+    id          int,foreign key (id) references student(id),
     name        varchar(50)        not null,
     age         int                not null check ( age > 0 | age < 150 ),
     gender      enum ('male','female') default 'male',
