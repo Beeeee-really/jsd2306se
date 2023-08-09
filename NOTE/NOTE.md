@@ -148,7 +148,6 @@ use spl;
 #### 案例演示
 
 ```mariadb
-use sql;
 use jsd2306;
 ```
 
@@ -206,7 +205,6 @@ create table if not exists class
 <p>添加字段</p>
 
 ```mariadb
-use jsd;
 alter table class
     add create_time date;
 ```
@@ -214,7 +212,6 @@ alter table class
 <p>更改字段名称</p>
 
 ```mariadb
-use jsd;
 alter table class
     change create_date create_time date;
 ```
@@ -222,7 +219,6 @@ alter table class
 <p>在某字段之后</p>
 
 ```mariadb
-use jsd;
 alter table class
     add create_time date after create_date;
 # 在create_date后创建新的字段
@@ -247,7 +243,6 @@ rename table class to class;
 - 简单语法
 
 ```mariadb
-use jsd;
 # 指定数据
 select update_time, create_date
 from class;
@@ -262,7 +257,6 @@ from class;
 - 语法
 
 ```mariadb
-use jsd;
 insert into class (id, create_date, create_time, update_time)
 VALUES (1, '1111 - 01 - 01', '1111 - 03 - 05', '1111 - 12 - 05');
 ```
@@ -270,7 +264,6 @@ VALUES (1, '1111 - 01 - 01', '1111 - 03 - 05', '1111 - 12 - 05');
 ### 更新表中记录
 
 ```mariadb
-use jsd;
 update class
 set create_date='1111-11-11'
 where id = 1;
@@ -279,7 +272,6 @@ where id = 1;
 ### 清空表中记录
 
 ```mariadb
-use jsd;
 delete
 from class
 where id = 2;
@@ -301,7 +293,7 @@ truncate class;# 危 清空表中数据 数据不能恢复 不记录日志
 
 #### 整型
 
-> 整型(tinyint,smallint,mediumint,int,bigint)
+> 整型(tinyint[1],smallint[2],mediumint[3],int[4],bigint[8])
 
 ```mariadb
 
