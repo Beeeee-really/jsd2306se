@@ -263,8 +263,25 @@ from class;
 
 ```mariadb
 use jsd;
-insert into class (class_name, create_date, create_time, update_time)
-VALUES ('qwq', '1111 - 01 - 01', '1111 - 03 - 05', '1111 - 12 - 05');
+insert into class (id, create_date, create_time, update_time)
+VALUES (1, '1111 - 01 - 01', '1111 - 03 - 05', '1111 - 12 - 05');
+```
+
+
+### 更新表中记录
+```mariadb
+use jsd;
+update class
+set create_date='1111-11-11'
+where id = 1;
+```
+
+### 删除表中记录
+```mariadb
+use jsd;
+delete
+from class
+where id = 2;
 ```
 
 
