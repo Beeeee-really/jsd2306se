@@ -368,6 +368,42 @@ values (1, 'qwq', 149, 'female', '11111111111', '1111-11-11', 'email@example.com
 select *
 from student;
 ```
+<center>
+
+# Day03
+
+</center>
+
+### 创建关系表
+
+```mariadb
+create table tb_student_subject
+(
+    student_id int,
+    subject_id int,
+#     foreign key (student_id) references tb_student (id),
+#     foreign key (student_id) references tb_subject (id),
+#     primary key (student_id, subject_id)
+    primary key (id)
+#     有两个字段构成的主键
+);
+alter table tb_student_subject
+    add foreign key (student_id) references tb_student (id);
+alter table tb_student_subject
+    add foreign key (student_id) references tb_subject (id);
+```
+
+> student_id,subject_id
+> <p>1         1</p>
+> <p>2         1</p>
+> <p>1         2</p>
+> <p>1         1</p>
+> <p>2         2</p>
+
+
+
+
+
 
 
 
