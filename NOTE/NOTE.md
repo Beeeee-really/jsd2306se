@@ -400,7 +400,42 @@ alter table tb_student_subject
 > <p>1         1</p>
 > <p>2         2</p>
 
+### 查hr数据库中员工信息
 
+#### 查询雇员表中名字包含a字母的雇员名和佣金(提成)？
+
+```mariadb
+select first_name, commission_pct
+from employees
+where first_name like '%a%'; 
+```
+
+
+
+#### 查询薪水在10000与24000之间的员工姓名、薪水...
+
+```mariadb
+ select first_name, salary, hire_date
+ from employees
+ where salary between 10000 and 24000;
+```
+
+
+### 对查询结果进行排序
+
+- 语法结构
+
+order by {}
+
+- 案例演示
+
+查询部门90中雇员的名字和薪水，降序
+```mariadb
+select first_name,salary
+from employees
+where department_id =90
+order by 2 desc -- 2表示第2列
+```
 
 
 
