@@ -537,6 +537,12 @@ select count(case when salary >= 10000 then 1 else null end) '>-10000',
 from employees;
 ```
 
+```mariadb
+select e.first_name, e.salary, m.fifst_name, m.salary
+from employees e
+         inner join employees m on e.manager_id = m.employee_id
+```
+
 
 
 
