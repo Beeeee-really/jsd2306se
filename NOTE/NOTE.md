@@ -3,6 +3,7 @@
 # Day01
 
 </center>
+
 ## MySQL
 
 ### 登录与登出
@@ -443,10 +444,81 @@ order by 2 desc -- 2表示第2列
 
 </center>
 
+## DQL中分页查询
+
+> Limit语句
+>
+> <p>DQL中的函数查询(单行函数,多行函数)</p>
+> <p>DQL中的分组查询(Group By,Having语法)</p>
+> <p>DQL中的嵌套查询(外层查询中嵌套内层查询)</p>
+> <p>DQL中的多表关联查询(join...on...)</p>
+> <p>DQL中的排序查询(order by)</p>
+> <p>DQL中的条件查询(where)</p>
+> <p>DQL中的简单查询(select)</p>
+
+### 分页查询
+
+- 查询语句的语法
+
+```sql
+limit
+[offset],pageSize
+```
+
+<p>
+
+**offset表示从什么位置去查询**
+
+</p>
+<p>
+
+**pageSize页面的大小**
+
+</p>
+
+- limit在sql中的位置
+
+```sql
+select
+from
+    [表A join 表B
+on 连接条件 1]
+    [
+where 查询条件]
+    [
+group by 分组查询]
+    [
+having 对分组后的结果进行限制返回]
+    [
+order by 字段名 ASC | DESC]
+    [limit [
+offset],pagesize]
+```
+
+- 案例演示
+
+> 1. 查新前3条雇员的信息
+
+```mariadb
+use hr;
+select employee_id, first_name, salary
+from employees
+limit 0,3;
+```
+
+![屏幕截图 2023-08-11 092531.png](屏幕截图%202023-08-11%20092531.png)
 
 
+> 2. 从雇员表中查询数据，每页最多查询10条记录
 
+```mariadb
+use hr;
+select employee_id, first_name, salary
+from employees
+limit 10,10;
+```
 
+limit子句底层执行原理，是先取出offset+10条记录，然后再将offset前面的记录扔掉
 
 
 
