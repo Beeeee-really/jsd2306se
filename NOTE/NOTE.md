@@ -353,7 +353,8 @@ create database if not exists Bee;
 use Bee;
 create table student
 (
-    id          int,foreign key (id) references student(id),
+    id          int,
+    foreign key (id) references student (id),
     name        varchar(50)        not null,
     age         int                not null check ( age > 0 | age < 150 ),
     gender      enum ('male','female') default 'male',
@@ -368,6 +369,7 @@ values (1, 'qwq', 149, 'female', '11111111111', '1111-11-11', 'email@example.com
 select *
 from student;
 ```
+
 <center>
 
 # Day03
@@ -410,8 +412,6 @@ from employees
 where first_name like '%a%'; 
 ```
 
-
-
 #### 查询薪水在10000与24000之间的员工姓名、薪水...
 
 ```mariadb
@@ -419,7 +419,6 @@ where first_name like '%a%';
  from employees
  where salary between 10000 and 24000;
 ```
-
 
 ### 对查询结果进行排序
 
@@ -430,12 +429,31 @@ order by {}
 - 案例演示
 
 查询部门90中雇员的名字和薪水，降序
+
 ```mariadb
-select first_name,salary
+select first_name, salary
 from employees
-where department_id =90
+where department_id = 90
 order by 2 desc -- 2表示第2列
 ```
+
+<center>
+
+# Day04
+
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
