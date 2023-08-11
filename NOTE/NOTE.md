@@ -529,10 +529,13 @@ sqlimit [offset],pageSize;
 
 - 语法2(不常用)
 
+......
 
-
-
-
+```mariadb
+select count(case when salary >= 10000 then 1 else null end) '>-10000',
+       count(case when salary >= 8000 then 1 else null end)  '>=8000'
+from employees;
+```
 
 
 
