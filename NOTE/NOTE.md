@@ -494,7 +494,7 @@ order by 字段名 ASC | DESC]
     [limit [
 offset],pagesize]
 ```
-        
+
 - 案例演示
 
 > 1. 查新前3条雇员的信息
@@ -537,109 +537,36 @@ select count(case when salary >= 10000 then 1 else null end) '>-10000',
 from employees;
 ```
 
+
 ```mariadb
-select e.first_name, e.salary, m.fifst_name, m.salary
+use hr;
+select max(salary),min(salary),sum(salary) from employees group by employee_id;
+```
+
+- 查询雇员206的薪资所在范围
+```mariadb
+use hr;
+select employee_id, job_title, min_salary, max_salary
 from employees e
-         inner join employees m on e.manager_id = m.employee_id
+         join jobs j on e.job_id = j.job_id
+where e.employee_id = 206;
+```
+
+```mariadb
+use hr;
+select department_id, sum(salary)
+from employees
+group by department_id
+having sum(salary) > 500000;
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```mariadb
+use hr;
+select first_name, start_date, end_date
+from employees e
+         join job_history j on e.employee_id = j.employee_id;
+```
 
 
 
