@@ -569,6 +569,168 @@ from employees e
          join job_history j on e.employee_id = j.employee_id;
 ```
 
+<center>
+
+# Day05
+
+</center>
+
+### 嵌套查询
+
+> 当一个查询依赖于另一个查询的结果时，此时可以使用嵌套查询(外层查询中有内置了子查询)
+
+#### 应用子句
+
+1) select
+2) from
+3) where
+4) ...
+
+#### 案例演示
+
+- 取经理人雇员编号为206的名字和薪水
+
+```mariadb
+use hr;
+select first_name, salary
+from employees
+where employee_id = (select manager_id
+                     from employees
+                     where employee_id = 206);
+```
+
+- 查询每个部门中，薪资最高的那个人的名字和薪水
+
+```mariadb
+use hr;
+select e1.department_id, e2.first_name, e2.salary
+from (select department_id, max(salary)
+      from employeesl
+      group by department_id) e1
+         join employees e2
+              on e1.department_id = e2.department_id
+where e1.max_salary = e2.salary
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
