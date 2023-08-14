@@ -537,13 +537,15 @@ select count(case when salary >= 10000 then 1 else null end) '>-10000',
 from employees;
 ```
 
-
 ```mariadb
 use hr;
-select max(salary),min(salary),sum(salary) from employees group by employee_id;
+select max(salary), min(salary), sum(salary)
+from employees
+group by employee_id;
 ```
 
 - 查询雇员206的薪资所在范围
+
 ```mariadb
 use hr;
 select employee_id, job_title, min_salary, max_salary
@@ -559,7 +561,6 @@ from employees
 group by department_id
 having sum(salary) > 500000;
 ```
-
 
 ```mariadb
 use hr;
