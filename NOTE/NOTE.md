@@ -602,15 +602,30 @@ where employee_id = (select manager_id
 - 查询每个部门中，薪资最高的那个人的名字和薪水
 
 ```mariadb
-use hr;
+use hr; 
 select e1.department_id, e2.first_name, e2.salary
-from (select department_id, max(salary)
+from (select department_id, max(salary) 
       from employeesl
       group by department_id) e1
          join employees e2
               on e1.department_id = e2.department_id
 where e1.max_salary = e2.salary
 ```
+
+
+```mariadb
+use hr;
+select first_name, salary
+from employees
+where salary < any -- any表示任何一个
+      (select salary
+       from employees
+       where job_id = 'IT_PROG')
+```
+    
+
+
+
 
 
 
