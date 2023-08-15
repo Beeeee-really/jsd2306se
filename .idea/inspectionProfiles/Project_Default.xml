@@ -15,6 +15,7 @@
     <inspection_tool class="SqlDialectInspection" enabled="true" level="INFORMATION" enabled_by_default="true" editorAttributes="INFORMATION_ATTRIBUTES" />
     <inspection_tool class="SqlRedundantElseNullInspection" enabled="true" level="INFORMATION" enabled_by_default="true" editorAttributes="INFORMATION_ATTRIBUTES" />
     <inspection_tool class="SqlResolveInspection" enabled="true" level="INFORMATION" enabled_by_default="true" editorAttributes="INFORMATION_ATTRIBUTES" />
+    <inspection_tool class="SqlWithoutWhereInspection" enabled="true" level="INFORMATION" enabled_by_default="true" editorAttributes="INFORMATION_ATTRIBUTES" />
     <inspection_tool class="XmlDeprecatedElement" enabled="true" level="INFORMATION" enabled_by_default="true" editorAttributes="INFORMATION_ATTRIBUTES" />
     <inspection_tool class="unused" enabled="true" level="INFORMATION" enabled_by_default="true" checkParameterExcludingHierarchy="false">
       <option name="LOCAL_VARIABLE" value="true" />

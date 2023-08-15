@@ -73,7 +73,7 @@ show character set like '%utf8%';
 
 <p></p>
 
-![屏幕截图 2023-08-08 163658.png](屏幕截图%202023-08-08%20163658.png)
+![屏幕截图 2023-08-08 163658.png](屏幕截图 2023-08-08 163658.png)
 
 <p>注释</p>
 
@@ -103,7 +103,7 @@ create database jsd2306;
 
 <p>因此</p>
 
-![屏幕截图 2023-08-08 152410.png](屏幕截图%202023-08-08%20152410.png)
+![屏幕截图 2023-08-08 152410.png](屏幕截图 2023-08-08 152410.png)
 
 ```mariadb
 # 当数据库不存在时创建数据库
@@ -114,7 +114,7 @@ create or replace database ntd;
 
 <p></p>
 
-![屏幕截图 2023-08-08 152608.png](屏幕截图%202023-08-08%20152608.png)
+![屏幕截图 2023-08-08 152608.png](屏幕截图 2023-08-08 152608.png)
 
 ### 删除数据库
 
@@ -193,7 +193,7 @@ create table if not exists class
 
 <p></p>
 
-![屏幕截图 2023-08-08 174027.png](屏幕截图%202023-08-08%20174027.png)
+![屏幕截图 2023-08-08 174027.png](屏幕截图 2023-08-08 174027.png)
 
 ### 删除表
 
@@ -506,7 +506,7 @@ from employees
 limit 0,3;
 ```
 
-![屏幕截图 2023-08-11 092531.png](屏幕截图%202023-08-11%20092531.png)
+![屏幕截图 2023-08-11 092531.png](屏幕截图 2023-08-11 092531.png)
 
 
 > 2. 从雇员表中查询数据，每页最多查询10条记录
@@ -602,16 +602,15 @@ where employee_id = (select manager_id
 - 查询每个部门中，薪资最高的那个人的名字和薪水
 
 ```mariadb
-use hr; 
+use hr;
 select e1.department_id, e2.first_name, e2.salary
-from (select department_id, max(salary) 
+from (select department_id, max(salary)
       from employeesl
       group by department_id) e1
          join employees e2
               on e1.department_id = e2.department_id
 where e1.max_salary = e2.salary
 ``` 
-
 
 ```mariadb
 use hr;
@@ -622,6 +621,33 @@ where salary < any -- any表示任何一个
        from employees
        where job_id = 'IT_PROG')
 ```
+
+<center>
+
+# Day06
+
+</center>
+
+### JDBC的应用
+
+> java中访问内存数据可以使用变量，访问磁盘数据可以使用IO技术
+> <p>java中的一组连接数据库的API，多为接口</p>
+> <p>这里的JDBC在java应用程序中用于访问数据库(MySQL,SQL Server)</p>
+
+### 使用JDBC
+
+> 通过它实现与数据库的交互
+
+#### 如何使用
+
+1) 加载驱动程序(Driver,由数据库厂商提供驱动)
+2) 与数据库建立连接(Connection)
+3) 创建基于Connection的Statement对象(基于此对象发送SQL)
+4) 发送SQL
+5) 处理结果(ResultSet)
+6) 释放资源
+
+
     
 
 
