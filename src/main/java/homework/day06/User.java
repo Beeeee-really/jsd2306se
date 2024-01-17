@@ -22,6 +22,7 @@ public class User {
     }
 
     public String getName() {
+        System.out.println("hello world");
         return name;
     }
 
